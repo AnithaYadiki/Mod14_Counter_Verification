@@ -16,11 +16,11 @@ function void connect_phase(uvm_phase phase);
 endfunction	
 task run_phase(uvm_phase phase);
 	@(vif.dr_cb)
-		vif.dr_cb.reset_n<=1'b0;
+		vif.dr_cb.reset_n<=1'b1;
 	//repeat(2)
 		@(vif.dr_cb);
 
-	vif.dr_cb.reset_n<=1'b1;
+	vif.dr_cb.reset_n<=1'b0;
 
 	seq_item_port.get_next_item(req);
 	send_to_dut(req);
