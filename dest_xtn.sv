@@ -1,6 +1,6 @@
 class dest_xtn extends uvm_sequence_item;
 	`uvm_object_utils(dest_xtn)
-	 bit [4:0] data_out;
+	bit [3:0] data_out;
 function new(string name ="source_xtn");
 	super.new(name);
 endfunction
