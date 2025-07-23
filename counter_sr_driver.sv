@@ -21,10 +21,12 @@ task run_phase(uvm_phase phase);
 		@(vif.dr_cb);
 
 	vif.dr_cb.reset_n<=1'b0;
-
+	forever
+		begin
 	seq_item_port.get_next_item(req);
 	send_to_dut(req);
 	seq_item_port.item_done();
+		end
 endtask
 task send_to_dut(source_xtn req);
 	@(vif.dr_cb);
